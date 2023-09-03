@@ -1,7 +1,8 @@
 .filter-bar {
   display: flex;
   align-items: center;
-  background-color: mistyrose;
+  background-color: #d0dce8;
+  padding: 10px 20px;
 }
 
 .filter-bar button {
@@ -24,9 +25,21 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #007bff;
+  background-color: #8bbbe9;
   color: #fff;
   padding: 10px 20px;
+}
+
+.left-buttons {
+  display: flex;
+  gap: 10px; 
+  align-items: center;
+}
+
+.right-buttons {
+  display: flex;
+  gap: 10px; 
+  align-items: center;
 }
 
 .right-buttons button {
@@ -49,7 +62,7 @@
 }
 
 .animal-card {
-  background-color: #fff;
+  background-color: #e9ecef;
   border: 1px solid #ddd;
   border-radius: 8px;
   padding: 20px;

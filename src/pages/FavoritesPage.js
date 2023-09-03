@@ -1,5 +1,3 @@
-// FavoritesPage.js
-
 import React from 'react';
 import Toolbar from '../components/Toolbar';
 import AnimalCard from '../components/AnimalCard';
@@ -10,7 +8,7 @@ const FavoritesPage = ({ favoriteAnimals }) => {
       <Toolbar
         onShowFavorites={() => {}}
         onLogout={() => {}}
-        currentPage="favorites" // Pass the current page as "favorites"
+        currentPage="favorites" 
       />
       <h2>Favorite Animals</h2>
       <div className="row mt-4">

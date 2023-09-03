@@ -78,7 +78,7 @@ const AnimalPage = () => {
         onLogout={handleLogout}
         onAddAnimal={handleShowModal}
         onFilterByType={handleFilterByType}
-        currentPage="animals" // Pass the current page as "animals"
+        currentPage="animals" 
       />
       <FilterBar
         onFilterByType={handleFilterByType}
