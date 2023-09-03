@@ -1,4 +1,3 @@
-// AnimalModal.js
 import React, { useState } from "react";
 import { Modal, Button, Form } from "react-bootstrap";
 
@@ -7,7 +6,7 @@ const AnimalModal = ({ show, onHide, onAddAnimal }) => {
     name: "",
     age: "",
     image: "",
-    type: "dog", // Default to 'dog', you can add a dropdown for selection
+    type: "dog", 
   });
 
   const handleInputChange = (e) => {
@@ -16,8 +15,8 @@ const AnimalModal = ({ show, onHide, onAddAnimal }) => {
   };
 
   const handleAddAnimal = () => {
-    console.log("Add button clicked"); // Check if this message appears in the console
-    onAddAnimal(animalData); // Call the onAddAnimal function with the new animal data
+    console.log("Add button clicked"); 
+    onAddAnimal(animalData); 
     onHide();
   };
 

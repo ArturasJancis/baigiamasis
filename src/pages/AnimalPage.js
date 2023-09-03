@@ -1,4 +1,3 @@
-// AnimalPage.js
 import React, { useState } from "react";
 import Toolbar from "../components/Toolbar";
 import FilterBar from "../components/FilterBar";
@@ -9,23 +8,22 @@ import AnimalModal from "../components/AnimalModal";
 
 const AnimalPage = () => {
   const navigate = useNavigate();
+  const [favorites, setFavorites] = useState([]);
+
 
   const [animalData, setAnimalData] = useState([
     {
       name: "Fluffy",
       type: "Cat",
       age: 3,
-      image:
-        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.readersdigest.ca%2Fwp-content%2Fuploads%2F2019%2F11%2Fcat-10-e1573844975155.jpg&f=1&nofb=1&ipt=70351af8650bd5f3db7a850faea2c1225c4195b8b37ceb4e259706765f4c2343&ipo=images",
+      image: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.readersdigest.ca%2Fwp-content%2Fuploads%2F2019%2F11%2Fcat-10-e1573844975155.jpg&f=1&nofb=1&ipt=70351af8650bd5f3db7a850faea2c1225c4195b8b37ceb4e259706765f4c2343&ipo=images",
     },
     {
       name: "Buddy",
       type: "Dog",
       age: 2,
-      image:
-        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.yuYto9g41BDnIt-LwK5N6gHaHx%26pid%3DApi&f=1&ipt=19dfaf74f255d2363c645f75bece5031f1667a6f11e114c1224746bc65a3aee8&ipo=images",
+      image: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.yuYto9g41BDnIt-LwK5N6gHaHx%26pid%3DApi&f=1&ipt=19dfaf74f255d2363c645f75bece5031f1667a6f11e114c1224746bc65a3aee8&ipo=images",
     },
-    // Add more animal data as needed
   ]);
 
   const [filteredAnimals, setFilteredAnimals] = useState(animalData);
@@ -42,7 +40,6 @@ const AnimalPage = () => {
       );
       setFilteredAnimals(dogs);
     } else {
-      // Handle the case when no filter is applied
       setFilteredAnimals(animalData);
     }
   };
@@ -59,8 +56,7 @@ const AnimalPage = () => {
   };
 
   const handleLogout = () => {
-    // Handle logout logic here if needed
-    navigate("/"); // Redirect to the login page
+    navigate("/");
   };
 
   const [showModal, setShowModal] = useState(false);
@@ -68,7 +64,7 @@ const AnimalPage = () => {
   const handleAddAnimal = (animal) => {
     const updatedAnimalData = [...animalData, animal];
     setAnimalData(updatedAnimalData);
-    setFilteredAnimals(updatedAnimalData); // Update filteredAnimals as well
+    setFilteredAnimals(updatedAnimalData);
     setShowModal(false);
   };
 
@@ -91,7 +87,11 @@ const AnimalPage = () => {
       <div className="row mt-4">
         {filteredAnimals.map((animal, index) => (
           <div key={index} className="col-lg-4 col-md-6 col-sm-12 mb-4">
-            <AnimalCard animal={animal} />
+            <AnimalCard
+              animal={animal}
+              favorites={favorites}
+              setFavorites={setFavorites}
+            />
           </div>
         ))}
       </div>
