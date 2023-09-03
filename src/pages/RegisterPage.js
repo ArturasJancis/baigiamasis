@@ -1,4 +1,3 @@
-// RegisterPage.js
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -16,8 +15,6 @@ const RegisterPage = () => {
     } else if (password !== repeatPassword) {
       setErrorMessage('Passwords do not match.');
     } else {
-      // Registration logic (you can add it later)
-      // After successful registration, navigate back to the login page
       navigate('/');
     }
   };
