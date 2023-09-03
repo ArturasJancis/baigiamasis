@@ -1,16 +1,40 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import AnimalPage from "./pages/AnimalPage";
+import FavoritesPage from "./pages/FavoritesPage"; // Import the FavoritesPage component
 
 function App() {
+  const [favoritesCount, setFavoritesCount] = useState(0);
+  const [favoriteAnimals, setFavoriteAnimals] = useState([]); // State to store favorite animals
+
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<LoginPage />} />
-        <Route path="/register" element={<RegisterPage />} />
-        <Route path="/animals" element={<AnimalPage />} />
+        <Route
+          path="/"
+          element={<LoginPage setFavoritesCount={setFavoritesCount} />}
+        />
+        <Route
+          path="/register"
+          element={<RegisterPage setFavoritesCount={setFavoritesCount} />}
+        />
+        <Route
+          path="/animals"
+          element={
+            <AnimalPage
+              favoritesCount={favoritesCount}
+              favoriteAnimals={favoriteAnimals} // Pass favoriteAnimals to AnimalPage
+            />
+          }
+        />
+        <Route
+          path="/favorites"
+          element={
+            <FavoritesPage favoriteAnimals={favoriteAnimals} /> // Pass favoriteAnimals to FavoritesPage
+          }
+        />
       </Routes>
     </Router>
   );

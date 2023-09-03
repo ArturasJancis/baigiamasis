@@ -1,10 +1,29 @@
-import React from 'react';
+// Toolbar.js
 
-const Toolbar = ({ onAddAnimal, onShowFavorites, onLogout }) => {
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+
+const Toolbar = ({ onAddAnimal, onShowFavorites, onLogout, currentPage }) => {
+  const navigate = useNavigate();
+
+  const handleShowAllAnimals = () => {
+    navigate('/animals'); // Navigate to the AnimalsPage
+  };
+
+  const handleShowFavorites = () => {
+    navigate('/favorites'); // Navigate to the FavoritesPage
+  };
+
   return (
     <div className="toolbar">
-      <button className="btn btn-primary" onClick={onAddAnimal}>Add Animal</button>
-      <button onClick={onShowFavorites}>Favorite Animals</button>
+      <button className="btn btn-primary" onClick={onAddAnimal}>
+        Add Animal
+      </button>
+      {currentPage === 'favorites' ? (
+        <button className="btn btn-primary" onClick={handleShowAllAnimals}>All Animals</button>
+      ) : (
+        <button className="btn btn-primary" onClick={handleShowFavorites}>Favorite Animals</button>
+      )}
       <span className="favorite-count">(0)</span>
       <div className="right-buttons">
         <button onClick={onLogout}>Logout</button>

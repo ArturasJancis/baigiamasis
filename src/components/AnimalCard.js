@@ -13,7 +13,7 @@ const AnimalCard = ({ animal }) => {
         <p>Type: {type}</p>
         <p>Age: {age} years</p>
       </div>
-      <button>Add to Favorites</button>
+      <button className="btn btn-primary">Add to Favorites</button>
     </div>
   );
 };
