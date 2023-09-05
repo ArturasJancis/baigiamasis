@@ -6,10 +6,9 @@ import "../styles/AnimalPage.css";
 import { useNavigate } from "react-router-dom";
 import AnimalModal from "../components/AnimalModal";
 
-const AnimalPage = ({ setFavoritesCount, favoritesCount }) => {
+const AnimalPage = ({ setFavoritesCount, favoritesCount, favoriteAnimals, setFavoriteAnimals }) => {
   const navigate = useNavigate();
   const [favorites, setFavorites] = useState([]);
-  const [favoriteAnimals, setFavoriteAnimals] = useState([]);
 
   const [animalData, setAnimalData] = useState([
     {
@@ -73,14 +72,21 @@ const AnimalPage = ({ setFavoritesCount, favoritesCount }) => {
   };
 
   const handleAddToFavorites = (animal) => {
-    setFavoriteAnimals((prevFavorites) => {
-      console.log("Before adding:", prevFavorites);
-      const updatedFavorites = [...prevFavorites, animal];
-      console.log("After adding:", updatedFavorites);
-      return updatedFavorites;
-    });
-    setFavoritesCount(prevCount => prevCount + 1);
+    const isAlreadyFavorite = favoriteAnimals.some(
+      (favAnimal) => favAnimal.name === animal.name
+    );
+  
+    if (!isAlreadyFavorite) {
+      const updatedFavoriteAnimals = [...favoriteAnimals, animal];
+      setFavoriteAnimals(updatedFavoriteAnimals); 
+  
+      setFavoritesCount((prevCount) => prevCount + 1);
+    }
   };
+
+  const handleFavoriteCountChange = (newCount) => {
+    setFavoritesCount(newCount);
+  }
 
   return (
     <div className="container mt-4">
@@ -95,13 +101,15 @@ const AnimalPage = ({ setFavoritesCount, favoritesCount }) => {
         onFilterByType={handleFilterByType}
         onFilterByAge={handleFilterByAge}
       />
-      <div className="row mt-4">
+ <div className="row mt-4">
         {filteredAnimals.map((animal, index) => (
           <div key={index} className="col-lg-4 col-md-6 col-sm-12 mb-4">
             <AnimalCard
               animal={animal}
               favorites={favorites}
-              isFavorite={favoriteAnimals.includes(animal)}
+              isFavorite={favoriteAnimals.some(
+                (favAnimal) => favAnimal.name === animal.name
+              )}
               setFavorites={setFavorites}
               onAddToFavorites={(animal) => handleAddToFavorites(animal)}
             />

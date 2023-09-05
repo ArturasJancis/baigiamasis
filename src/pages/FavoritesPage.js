@@ -3,7 +3,6 @@ import Toolbar from '../components/Toolbar';
 import AnimalCard from '../components/AnimalCard';
 
 const FavoritesPage = ({ favoriteAnimals, favoritesCount }) => {
-  console.log("Received favoriteAnimals:", favoriteAnimals);
   return (
     <div className="container mt-4">
       <Toolbar

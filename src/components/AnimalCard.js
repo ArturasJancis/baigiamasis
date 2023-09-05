@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/AnimalPage.css';
 
-const AnimalCard = ({ animal, onAddToFavorites }) => {
+const AnimalCard = ({ animal, isFavorite, onAddToFavorites }) => {
   const { name, type, age, image } = animal;
 
   return (
@@ -12,7 +12,13 @@ const AnimalCard = ({ animal, onAddToFavorites }) => {
         <p>Type: {type}</p>
         <p>Age: {age} years</p>
       </div>
-      <button onClick={() => onAddToFavorites(animal)} className="btn btn-primary">Add to Favorites</button>
+      <button
+        onClick={() => onAddToFavorites(animal)}
+        className="btn btn-primary"
+        disabled={isFavorite} 
+      >
+        {isFavorite ? "Already Favorite" : "Add to Favorites"}
+      </button>
     </div>
   );
 };

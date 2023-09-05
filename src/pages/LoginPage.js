@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const LoginPage = () => {
-  const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -19,6 +18,8 @@ const LoginPage = () => {
   const handleRegister = () => {
     navigate("/register");
   };
+
+  const navigate = useNavigate();
 
   return (
     <div className="container mt-5">

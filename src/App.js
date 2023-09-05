@@ -9,6 +9,10 @@ function App() {
   const [favoritesCount, setFavoritesCount] = useState(0);
   const [favoriteAnimals, setFavoriteAnimals] = useState([]);
 
+  const updateFavoriteAnimals = (newFavoriteAnimals) => {
+    setFavoriteAnimals(newFavoriteAnimals);
+  };
+
   return (
     <Router>
       <Routes>
@@ -27,6 +31,8 @@ function App() {
               favoritesCount={favoritesCount}
               favoriteAnimals={favoriteAnimals}
               setFavoritesCount={setFavoritesCount}
+              onFavoriteCountChange={(count) => setFavoritesCount(count)}
+              setFavoriteAnimals={updateFavoriteAnimals}
             />
           }
         />
