@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const Toolbar = ({ onAddAnimal, onShowFavorites, onLogout, currentPage }) => {
+const Toolbar = ({ onAddAnimal, onShowFavorites, onLogout, currentPage, favoritesCount }) => {
   const navigate = useNavigate();
 
   const handleShowAllAnimals = () => {
@@ -27,7 +27,7 @@ const Toolbar = ({ onAddAnimal, onShowFavorites, onLogout, currentPage }) => {
             Favorite Animals
           </button>
         )}
-        <span className="favorite-count">(0)</span>
+        <span className="favorite-count">({favoritesCount})</span>
       </div>
       <div className="right-buttons">
         <button onClick={onLogout}>Logout</button>

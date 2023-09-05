@@ -6,10 +6,10 @@ import "../styles/AnimalPage.css";
 import { useNavigate } from "react-router-dom";
 import AnimalModal from "../components/AnimalModal";
 
-const AnimalPage = () => {
+const AnimalPage = ({ setFavoritesCount, favoritesCount }) => {
   const navigate = useNavigate();
   const [favorites, setFavorites] = useState([]);
-
+  const [favoriteAnimals, setFavoriteAnimals] = useState([]);
 
   const [animalData, setAnimalData] = useState([
     {
@@ -72,6 +72,16 @@ const AnimalPage = () => {
     setShowModal(true);
   };
 
+  const handleAddToFavorites = (animal) => {
+    setFavoriteAnimals((prevFavorites) => {
+      console.log("Before adding:", prevFavorites);
+      const updatedFavorites = [...prevFavorites, animal];
+      console.log("After adding:", updatedFavorites);
+      return updatedFavorites;
+    });
+    setFavoritesCount(prevCount => prevCount + 1);
+  };
+
   return (
     <div className="container mt-4">
       <Toolbar
@@ -79,6 +89,7 @@ const AnimalPage = () => {
         onAddAnimal={handleShowModal}
         onFilterByType={handleFilterByType}
         currentPage="animals" 
+        favoritesCount={favoritesCount}
       />
       <FilterBar
         onFilterByType={handleFilterByType}
@@ -90,7 +101,9 @@ const AnimalPage = () => {
             <AnimalCard
               animal={animal}
               favorites={favorites}
+              isFavorite={favoriteAnimals.includes(animal)}
               setFavorites={setFavorites}
+              onAddToFavorites={(animal) => handleAddToFavorites(animal)}
             />
           </div>
         ))}

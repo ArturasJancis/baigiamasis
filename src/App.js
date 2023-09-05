@@ -3,11 +3,11 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import AnimalPage from "./pages/AnimalPage";
-import FavoritesPage from "./pages/FavoritesPage"; 
+import FavoritesPage from "./pages/FavoritesPage";
 
 function App() {
   const [favoritesCount, setFavoritesCount] = useState(0);
-  const [favoriteAnimals, setFavoriteAnimals] = useState([]); 
+  const [favoriteAnimals, setFavoriteAnimals] = useState([]);
 
   return (
     <Router>
@@ -25,15 +25,14 @@ function App() {
           element={
             <AnimalPage
               favoritesCount={favoritesCount}
-              favoriteAnimals={favoriteAnimals} 
+              favoriteAnimals={favoriteAnimals}
+              setFavoritesCount={setFavoritesCount}
             />
           }
         />
         <Route
           path="/favorites"
-          element={
-            <FavoritesPage favoriteAnimals={favoriteAnimals} /> 
-          }
+          element={<FavoritesPage favoriteAnimals={favoriteAnimals} favoritesCount={favoritesCount} />}
         />
       </Routes>
     </Router>
