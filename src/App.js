@@ -62,6 +62,7 @@ function App() {
               favoriteAnimals={favoriteAnimals}
               favoritesCount={favoritesCount}
               setFavoriteAnimals={setFavoriteAnimals}
+              setFavoritesCount={setFavoritesCount}
             />
           }
         />

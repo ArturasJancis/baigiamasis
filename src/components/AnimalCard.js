@@ -12,7 +12,7 @@ const AnimalCard = ({ animal, isFavorite, onAddToFavorites, onRemoveFromFavorite
         <p>Type: {type}</p>
         <p>Age: {age} years</p>
       </div>
-      {currentPage === 'favorites' ? ( // Conditionally render based on the current page
+      {currentPage === 'favorites' ? (
         <button
           onClick={() => onRemoveFromFavorites(animal)}
           className="btn btn-danger"

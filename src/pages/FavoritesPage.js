@@ -2,14 +2,18 @@ import React from "react";
 import Toolbar from "../components/Toolbar";
 import AnimalCard from "../components/AnimalCard";
 
-const FavoritesPage = ({ favoriteAnimals, favoritesCount, setFavoriteAnimals  }) => {
+const FavoritesPage = ({ favoriteAnimals, favoritesCount, setFavoriteAnimals, setFavoritesCount }) => {
+
   const removeFromFavorites = (animalToRemove) => {
     const updatedFavoriteAnimals = favoriteAnimals.filter(
       (animal) => animal.name !== animalToRemove.name
     );
     setFavoriteAnimals(updatedFavoriteAnimals);
+
+    // Update favoritesCount
+    setFavoritesCount(updatedFavoriteAnimals.length);
   };
-  
+
   return (
     <div className="container mt-4">
       <Toolbar
