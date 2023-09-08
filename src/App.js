@@ -8,7 +8,23 @@ import FavoritesPage from "./pages/FavoritesPage";
 function App() {
   const [favoritesCount, setFavoritesCount] = useState(0);
   const [favoriteAnimals, setFavoriteAnimals] = useState([]);
+  const [animalData, setAnimalData] = useState([
+    // Initial animal data
+    {
+      name: "Fluffy",
+      type: "Cat",
+      age: 3,
+      image: "https://example.com/fluffy.jpg",
+    },
+    {
+      name: "Buddy",
+      type: "Dog",
+      age: 2,
+      image: "https://example.com/buddy.jpg",
+    },
+  ]);
 
+  // Function to update favorite animals
   const updateFavoriteAnimals = (newFavoriteAnimals) => {
     setFavoriteAnimals(newFavoriteAnimals);
   };
@@ -31,8 +47,9 @@ function App() {
               favoritesCount={favoritesCount}
               favoriteAnimals={favoriteAnimals}
               setFavoritesCount={setFavoritesCount}
-              onFavoriteCountChange={(count) => setFavoritesCount(count)}
               setFavoriteAnimals={updateFavoriteAnimals}
+              animalData={animalData} // Pass animal data here
+              setAnimalData={setAnimalData} // Pass setAnimalData here
             />
           }
         />

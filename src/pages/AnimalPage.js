@@ -2,29 +2,13 @@ import React, { useState } from "react";
 import Toolbar from "../components/Toolbar";
 import FilterBar from "../components/FilterBar";
 import AnimalCard from "../components/AnimalCard";
+import AnimalModal from "../components/AnimalModal";
 import "../styles/AnimalPage.css";
 import { useNavigate } from "react-router-dom";
-import AnimalModal from "../components/AnimalModal";
 
-const AnimalPage = ({ setFavoritesCount, favoritesCount, favoriteAnimals, setFavoriteAnimals }) => {
+const AnimalPage = ({ setFavoritesCount, favoritesCount, favoriteAnimals, setFavoriteAnimals, animalData, setAnimalData }) => {
   const navigate = useNavigate();
   const [favorites, setFavorites] = useState([]);
-
-  const [animalData, setAnimalData] = useState([
-    {
-      name: "Fluffy",
-      type: "Cat",
-      age: 3,
-      image: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.readersdigest.ca%2Fwp-content%2Fuploads%2F2019%2F11%2Fcat-10-e1573844975155.jpg&f=1&nofb=1&ipt=70351af8650bd5f3db7a850faea2c1225c4195b8b37ceb4e259706765f4c2343&ipo=images",
-    },
-    {
-      name: "Buddy",
-      type: "Dog",
-      age: 2,
-      image: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.yuYto9g41BDnIt-LwK5N6gHaHx%26pid%3DApi&f=1&ipt=19dfaf74f255d2363c645f75bece5031f1667a6f11e114c1224746bc65a3aee8&ipo=images",
-    },
-  ]);
-
   const [filteredAnimals, setFilteredAnimals] = useState(animalData);
 
   const handleFilterByType = (type) => {
@@ -62,7 +46,7 @@ const AnimalPage = ({ setFavoritesCount, favoritesCount, favoriteAnimals, setFav
 
   const handleAddAnimal = (animal) => {
     const updatedAnimalData = [...animalData, animal];
-    setAnimalData(updatedAnimalData);
+    setAnimalData(updatedAnimalData); // Update the central animal data
     setFilteredAnimals(updatedAnimalData);
     setShowModal(false);
   };
