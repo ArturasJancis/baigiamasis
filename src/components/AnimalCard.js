@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/AnimalPage.css';
 
-const AnimalCard = ({ animal, isFavorite, onAddToFavorites }) => {
+const AnimalCard = ({ animal, isFavorite, onAddToFavorites, onRemoveFromFavorites, currentPage }) => {
   const { name, type, age, image } = animal;
 
   return (
@@ -12,15 +12,25 @@ const AnimalCard = ({ animal, isFavorite, onAddToFavorites }) => {
         <p>Type: {type}</p>
         <p>Age: {age} years</p>
       </div>
-      <button
-        onClick={() => onAddToFavorites(animal)}
-        className="btn btn-primary"
-        disabled={isFavorite} 
-      >
-        {isFavorite ? "Already Favorite" : "Add to Favorites"}
-      </button>
+      {currentPage === 'favorites' ? ( // Conditionally render based on the current page
+        <button
+          onClick={() => onRemoveFromFavorites(animal)}
+          className="btn btn-danger"
+        >
+          Remove from Favorites
+        </button>
+      ) : (
+        <button
+          onClick={() => onAddToFavorites(animal)}
+          className="btn btn-primary"
+          disabled={isFavorite}
+        >
+          {isFavorite ? "Already Favorite" : "Add to Favorites"}
+        </button>
+      )}
     </div>
   );
 };
+
 
 export default AnimalCard;
