@@ -9,7 +9,6 @@ function App() {
   const [favoritesCount, setFavoritesCount] = useState(0);
   const [favoriteAnimals, setFavoriteAnimals] = useState([]);
   const [animalData, setAnimalData] = useState([
-    // Initial animal data
     {
       name: "Fluffy",
       type: "Cat",
@@ -26,7 +25,6 @@ function App() {
     },
   ]);
 
-  // Function to update favorite animals
   const updateFavoriteAnimals = (newFavoriteAnimals) => {
     setFavoriteAnimals(newFavoriteAnimals);
   };
@@ -50,8 +48,8 @@ function App() {
               favoriteAnimals={favoriteAnimals}
               setFavoritesCount={setFavoritesCount}
               setFavoriteAnimals={updateFavoriteAnimals}
-              animalData={animalData} // Pass animal data here
-              setAnimalData={setAnimalData} // Pass setAnimalData here
+              animalData={animalData} 
+              setAnimalData={setAnimalData} 
             />
           }
         />

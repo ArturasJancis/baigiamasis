@@ -46,7 +46,7 @@ const AnimalPage = ({ setFavoritesCount, favoritesCount, favoriteAnimals, setFav
 
   const handleAddAnimal = (animal) => {
     const updatedAnimalData = [...animalData, animal];
-    setAnimalData(updatedAnimalData); // Update the central animal data
+    setAnimalData(updatedAnimalData); 
     setFilteredAnimals(updatedAnimalData);
     setShowModal(false);
   };

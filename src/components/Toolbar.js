@@ -15,9 +15,11 @@ const Toolbar = ({ onAddAnimal, onShowFavorites, onLogout, currentPage, favorite
   return (
     <div className="toolbar">
       <div className="left-buttons">
-        <button className="btn btn-primary" onClick={onAddAnimal}>
-          Add Animal
-        </button>
+        {currentPage === "animals" && ( 
+          <button className="btn btn-primary" onClick={onAddAnimal}>
+            Add Animal
+          </button>
+        )}
         {currentPage === "favorites" ? (
           <button className="btn btn-primary" onClick={handleShowAllAnimals}>
             All Animals
