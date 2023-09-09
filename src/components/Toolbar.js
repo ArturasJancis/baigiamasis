@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 
 const Toolbar = ({
   onAddAnimal,
-  onShowFavorites,
   onLogout,
   currentPage,
   favoritesCount,
@@ -47,6 +46,7 @@ const Toolbar = ({
           <button className="btn btn-primary" onClick={handleShowFavorites}>
             Favorite Animals
           </button>
+          <span className="favorite-count">({favoritesCount})</span>
         </div>
       )}
       <div className="right-buttons">

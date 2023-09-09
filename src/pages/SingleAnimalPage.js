@@ -1,18 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import Toolbar from "../components/Toolbar"; // Import the Toolbar component
+import Toolbar from "../components/Toolbar"; 
+import { useNavigate } from "react-router-dom";
 
-const SingleAnimalPage = ({ animalData }) => {
+const SingleAnimalPage = ({ animalData, favoritesCount  }) => {
   const { animalId } = useParams();
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState("");
   const [currentAnimal, setCurrentAnimal] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (animalData && animalId) {
       const foundAnimal = animalData.find((animal) => animal.name === animalId);
       setCurrentAnimal(foundAnimal);
     }
+    console.log("favoritesCount in SingleAnimalPage:", favoritesCount);
   }, [animalData, animalId]);
 
   const handleAddComment = () => {
@@ -29,10 +32,13 @@ const SingleAnimalPage = ({ animalData }) => {
     setComments(updatedComments);
   };
 
+  const handleLogout = () => {
+    navigate("/");
+  };
+
   return (
     <div className="container mt-4">
-      {/* Pass the appropriate currentPage prop to the Toolbar */}
-      <Toolbar currentPage="animal" />
+      <Toolbar currentPage="animal" favoritesCount={favoritesCount} onLogout={handleLogout} />
       {currentAnimal && (
         <div className="row mt-4">
           <div className="col-lg-6">

@@ -67,7 +67,13 @@ function App() {
         />
         <Route
           path="/animal/:animalId"
-          element={<SingleAnimalPage animalData={animalData} />}
+          element={
+            <SingleAnimalPage
+              animalData={animalData}
+              favoritesCount={favoritesCount}
+              setFavoritesCount={setFavoritesCount}
+            />
+          }
         />
       </Routes>
     </Router>
