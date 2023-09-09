@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import Toolbar from "../components/Toolbar"; 
+import Toolbar from "../components/Toolbar";
 import { useNavigate } from "react-router-dom";
+import "../styles/SingleAnimalPage.css"; 
 
-const SingleAnimalPage = ({ animalData, favoritesCount  }) => {
+const SingleAnimalPage = ({ animalData, favoritesCount }) => {
   const { animalId } = useParams();
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState("");
@@ -51,24 +52,26 @@ const SingleAnimalPage = ({ animalData, favoritesCount  }) => {
           </div>
         </div>
       )}
-      <div>
+      <div className="comment-section mt-4">
         <h3>Comments</h3>
         <ul>
           {comments.map((comment, index) => (
             <li key={index}>
               {comment}
-              <button onClick={() => handleDeleteComment(index)}>Delete</button>
+              <button className="delete-comment-button" onClick={() => handleDeleteComment(index)}>Delete</button>
             </li>
           ))}
         </ul>
-        <div>
-          <input
-            type="text"
+        <div className="comment-input">
+          <textarea
+            className="custom-textarea"
             placeholder="Add a new comment..."
             value={newComment}
             onChange={(e) => setNewComment(e.target.value)}
           />
-          <button onClick={handleAddComment}>Add Comment</button>
+          <button className="custom-button" onClick={handleAddComment}>
+            Add Comment
+          </button>
         </div>
       </div>
     </div>
