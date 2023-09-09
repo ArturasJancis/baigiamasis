@@ -6,6 +6,7 @@ const Toolbar = ({
   onLogout,
   currentPage,
   favoritesCount,
+  hideFavoritesCount,
 }) => {
   const navigate = useNavigate();
 
@@ -27,7 +28,7 @@ const Toolbar = ({
           <button className="btn btn-primary" onClick={handleShowFavorites}>
             Favorite Animals
           </button>
-          <span className="favorite-count">({favoritesCount})</span>
+          {!hideFavoritesCount && <span className="favorite-count">({favoritesCount})</span>}
         </div>
       )}
       {currentPage === "favorites" && (
@@ -35,7 +36,7 @@ const Toolbar = ({
           <button className="btn btn-primary" onClick={handleShowAllAnimals}>
             All Animals
           </button>
-          <span className="favorite-count">({favoritesCount})</span>
+          {!hideFavoritesCount && <span className="favorite-count">({favoritesCount})</span>}
         </div>
       )}
       {currentPage === "animal" && (
@@ -46,7 +47,7 @@ const Toolbar = ({
           <button className="btn btn-primary" onClick={handleShowFavorites}>
             Favorite Animals
           </button>
-          <span className="favorite-count">({favoritesCount})</span>
+          {!hideFavoritesCount && <span className="favorite-count">({favoritesCount})</span>}
         </div>
       )}
       <div className="right-buttons">

@@ -25,6 +25,7 @@ const FavoritesPage = ({ favoriteAnimals, favoritesCount, setFavoriteAnimals, se
         onLogout={handleLogout}
         currentPage="favorites"
         favoritesCount={favoritesCount}
+        hideFavoritesCount={true}
       />
       <div className="row mt-4">
         {favoriteAnimals.map((animal, index) => (
