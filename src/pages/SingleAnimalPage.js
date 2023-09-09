@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import Toolbar from "../components/Toolbar";
+import Toolbar from "../components/Toolbar"; // Import the Toolbar component
 
 const SingleAnimalPage = ({ animalData }) => {
   const { animalId } = useParams();
@@ -31,7 +31,8 @@ const SingleAnimalPage = ({ animalData }) => {
 
   return (
     <div className="container mt-4">
-      <Toolbar />
+      {/* Pass the appropriate currentPage prop to the Toolbar */}
+      <Toolbar currentPage="animal" />
       {currentAnimal && (
         <div className="row mt-4">
           <div className="col-lg-6">
