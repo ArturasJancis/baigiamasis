@@ -34,6 +34,7 @@ const FavoritesPage = ({ favoriteAnimals, favoritesCount, setFavoriteAnimals, se
               isFavorite={true}
               currentPage="favorites"
               onRemoveFromFavorites={() => removeFromFavorites(animal)}
+              animalId={animal.name}
             />
           </div>
         ))}

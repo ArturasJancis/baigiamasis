@@ -6,7 +6,14 @@ import AnimalModal from "../components/AnimalModal";
 import "../styles/AnimalPage.css";
 import { useNavigate } from "react-router-dom";
 
-const AnimalPage = ({ setFavoritesCount, favoritesCount, favoriteAnimals, setFavoriteAnimals, animalData, setAnimalData }) => {
+const AnimalPage = ({
+  setFavoritesCount,
+  favoritesCount,
+  favoriteAnimals,
+  setFavoriteAnimals,
+  animalData,
+  setAnimalData,
+}) => {
   const navigate = useNavigate();
   const [favorites, setFavorites] = useState([]);
   const [filteredAnimals, setFilteredAnimals] = useState(animalData);
@@ -46,7 +53,7 @@ const AnimalPage = ({ setFavoritesCount, favoritesCount, favoriteAnimals, setFav
 
   const handleAddAnimal = (animal) => {
     const updatedAnimalData = [...animalData, animal];
-    setAnimalData(updatedAnimalData); 
+    setAnimalData(updatedAnimalData);
     setFilteredAnimals(updatedAnimalData);
     setShowModal(false);
   };
@@ -59,18 +66,18 @@ const AnimalPage = ({ setFavoritesCount, favoritesCount, favoriteAnimals, setFav
     const isAlreadyFavorite = favoriteAnimals.some(
       (favAnimal) => favAnimal.name === animal.name
     );
-  
+
     if (!isAlreadyFavorite) {
       const updatedFavoriteAnimals = [...favoriteAnimals, animal];
-      setFavoriteAnimals(updatedFavoriteAnimals); 
-  
+      setFavoriteAnimals(updatedFavoriteAnimals);
+
       setFavoritesCount((prevCount) => prevCount + 1);
     }
   };
 
   const handleFavoriteCountChange = (newCount) => {
     setFavoritesCount(newCount);
-  }
+  };
 
   return (
     <div className="container mt-4">
@@ -78,14 +85,14 @@ const AnimalPage = ({ setFavoritesCount, favoritesCount, favoriteAnimals, setFav
         onLogout={handleLogout}
         onAddAnimal={handleShowModal}
         onFilterByType={handleFilterByType}
-        currentPage="animals" 
+        currentPage="animals"
         favoritesCount={favoritesCount}
       />
       <FilterBar
         onFilterByType={handleFilterByType}
         onFilterByAge={handleFilterByAge}
       />
- <div className="row mt-4">
+      <div className="row mt-4">
         {filteredAnimals.map((animal, index) => (
           <div key={index} className="col-lg-4 col-md-6 col-sm-12 mb-4">
             <AnimalCard
@@ -96,6 +103,7 @@ const AnimalPage = ({ setFavoritesCount, favoritesCount, favoriteAnimals, setFav
               )}
               setFavorites={setFavorites}
               onAddToFavorites={(animal) => handleAddToFavorites(animal)}
+              animalId={animal.name}
             />
           </div>
         ))}

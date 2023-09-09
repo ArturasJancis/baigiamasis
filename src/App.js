@@ -4,6 +4,7 @@ import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import AnimalPage from "./pages/AnimalPage";
 import FavoritesPage from "./pages/FavoritesPage";
+import SingleAnimalPage from "./pages/SingleAnimalPage";
 
 function App() {
   const [favoritesCount, setFavoritesCount] = useState(0);
@@ -48,8 +49,8 @@ function App() {
               favoriteAnimals={favoriteAnimals}
               setFavoritesCount={setFavoritesCount}
               setFavoriteAnimals={updateFavoriteAnimals}
-              animalData={animalData} 
-              setAnimalData={setAnimalData} 
+              animalData={animalData}
+              setAnimalData={setAnimalData}
             />
           }
         />
@@ -63,6 +64,10 @@ function App() {
               setFavoritesCount={setFavoritesCount}
             />
           }
+        />
+        <Route
+          path="/animal/:animalId"
+          element={<SingleAnimalPage animalData={animalData} />}
         />
       </Routes>
     </Router>
