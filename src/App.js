@@ -95,62 +95,64 @@ function App() {
 
   return (
     <Router>
-      <CommentProvider>
-        <Routes>
-          {/* Route for the login page */}
-          <Route
-            path="/"
-            element={<LoginPage setFavoritesCount={setFavoritesCount} />}
-          />
+      <HashRouter>
+        <CommentProvider>
+          <Routes>
+            {/* Route for the login page */}
+            <Route
+              path="/"
+              element={<LoginPage setFavoritesCount={setFavoritesCount} />}
+            />
 
-          {/* Route for the registration page */}
-          <Route
-            path="/register"
-            element={<RegisterPage setFavoritesCount={setFavoritesCount} />}
-          />
+            {/* Route for the registration page */}
+            <Route
+              path="/register"
+              element={<RegisterPage setFavoritesCount={setFavoritesCount} />}
+            />
 
-          {/* Route for the main animal page */}
-          <Route
-            path="/animals"
-            element={
-              <AnimalPage
-                favoritesCount={favoritesCount}
-                favoriteAnimals={favoriteAnimals}
-                setFavoritesCount={setFavoritesCount}
-                setFavoriteAnimals={updateFavoriteAnimals}
-                animalData={animalData}
-                setAnimalData={setAnimalData}
-              />
-            }
-          />
+            {/* Route for the main animal page */}
+            <Route
+              path="/animals"
+              element={
+                <AnimalPage
+                  favoritesCount={favoritesCount}
+                  favoriteAnimals={favoriteAnimals}
+                  setFavoritesCount={setFavoritesCount}
+                  setFavoriteAnimals={updateFavoriteAnimals}
+                  animalData={animalData}
+                  setAnimalData={setAnimalData}
+                />
+              }
+            />
 
-          {/* Route for the favorites page */}
-          <Route
-            path="/favorites"
-            element={
-              <FavoritesPage
-                favoriteAnimals={favoriteAnimals}
-                favoritesCount={favoritesCount}
-                setFavoriteAnimals={setFavoriteAnimals}
-                setFavoritesCount={setFavoritesCount}
-              />
-            }
-          />
+            {/* Route for the favorites page */}
+            <Route
+              path="/favorites"
+              element={
+                <FavoritesPage
+                  favoriteAnimals={favoriteAnimals}
+                  favoritesCount={favoritesCount}
+                  setFavoriteAnimals={setFavoriteAnimals}
+                  setFavoritesCount={setFavoritesCount}
+                />
+              }
+            />
 
-          {/* Route for a single animal page */}
-          <Route
-            path="/animal/:animalId"
-            element={
-              <SingleAnimalPage
-                animalData={animalData}
-                favoritesCount={favoritesCount}
-                setFavoritesCount={setFavoritesCount}
-                setAnimalData={setAnimalData}
-              />
-            }
-          />
-        </Routes>
-      </CommentProvider>
+            {/* Route for a single animal page */}
+            <Route
+              path="/animal/:animalId"
+              element={
+                <SingleAnimalPage
+                  animalData={animalData}
+                  favoritesCount={favoritesCount}
+                  setFavoritesCount={setFavoritesCount}
+                  setAnimalData={setAnimalData}
+                />
+              }
+            />
+          </Routes>
+        </CommentProvider>
+      </HashRouter>
     </Router>
   );
 }
