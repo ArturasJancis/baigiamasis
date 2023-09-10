@@ -92,14 +92,13 @@ const SingleAnimalPage = ({ animalData, favoritesCount, setAnimalData }) => {
           </div>
           <div className="col-lg-6">
             <h2>{currentAnimal.name}</h2>
-            <p>Type: {currentAnimal.type}</p>
-            <p>Age: {currentAnimal.age} years</p>
+            <p>{currentAnimal.type}</p>
+            <p>{currentAnimal.age} years</p>
           </div>
         </div>
       )}
       {currentAnimal && (
         <div className="comment-section mt-4">
-          <h3>Comments</h3>
           <ul>
             {currentAnimal.comments.map((comment, index) => (
               <li key={index}>

@@ -30,8 +30,8 @@ const AnimalCard = ({
         <img src={image} alt={`${name}`} />
         <div className="animal-details">
           <h3>{name}</h3>
-          <p>Type: {type}</p>
-          <p>Age: {age} years</p>
+          <p>{type}</p>
+          <p>{age} years</p>
         </div>
         {currentPage === "favorites" ? (
           // Button to remove from favorites if on the favorites page
