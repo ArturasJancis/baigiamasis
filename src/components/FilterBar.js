@@ -1,8 +1,6 @@
-// FilterBar.js
-
 import React, { useState } from 'react';
 
-const FilterBar = ({ onFilterByType, onFilterByAge, onShowAllAnimals }) => {
+const FilterBar = ({ onFilterByType, onFilterByAge, onResetFilters }) => {
   // Initialize state to manage filters
   const [filters, setFilters] = useState({ animalType: '', animalAge: '' });
 
@@ -19,6 +17,13 @@ const FilterBar = ({ onFilterByType, onFilterByAge, onShowAllAnimals }) => {
     } else if (name === 'animalAge') {
       onFilterByAge(value); // Trigger age filter
     }
+  };
+
+  // Handle reset button click
+  const handleReset = () => {
+    // Clear the input fields and reset the filters
+    setFilters({ animalType: '', animalAge: '' });
+    onResetFilters();
   };
 
   return (
@@ -38,8 +43,8 @@ const FilterBar = ({ onFilterByType, onFilterByAge, onShowAllAnimals }) => {
         onChange={handleInputChange} // Call the input change handler
       />
 
-      {/* Button to show all animals */}
-      <button onClick={onShowAllAnimals}>Show All Animals</button>
+      {/* Reset button to clear filters */}
+      <button onClick={handleReset}>Reset Filters</button>
     </div>
   );
 };

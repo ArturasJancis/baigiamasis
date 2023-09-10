@@ -47,10 +47,6 @@ const AnimalPage = ({
     }
   };
 
-  const handleShowAllAnimals = () => {
-    setFilteredAnimals(animalData);
-  };
-
   // Handle user logout
   const handleLogout = () => {
     navigate("/");
@@ -82,6 +78,10 @@ const AnimalPage = ({
     }
   };
 
+  const handleResetFilters = () => {
+    setFilteredAnimals(animalData);
+  };
+
   return (
     <div className="container mt-4">
       {/* Toolbar component for navigation and actions */}
@@ -96,7 +96,7 @@ const AnimalPage = ({
       <FilterBar
         onFilterByType={handleFilterByType}
         onFilterByAge={handleFilterByAge}
-        onShowAllAnimals={handleShowAllAnimals}
+        onResetFilters={handleResetFilters}
       />
       <div className="row mt-4">
         {/* Map and display filtered animals as AnimalCard components */}
