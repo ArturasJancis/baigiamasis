@@ -18,9 +18,6 @@ const AnimalModal = ({ show, onHide, onAddAnimal }) => {
 
   // Function to handle adding a new animal
   const handleAddAnimal = () => {
-    // Log a message to indicate the button click
-    console.log("Add button clicked");
-
     // Call the provided callback to add the new animal and then close the modal
     onAddAnimal(animalData);
     onHide();
