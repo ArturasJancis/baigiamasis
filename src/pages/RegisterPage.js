@@ -4,18 +4,37 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const RegisterPage = () => {
   const navigate = useNavigate();
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [repeatPassword, setRepeatPassword] = useState('');
+
+  // State to manage form input values and error message
+  const [formData, setFormData] = useState({
+    username: '',
+    password: '',
+    repeatPassword: '',
+  });
+
   const [errorMessage, setErrorMessage] = useState('');
 
+  // Handle changes in input fields
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  // Handle registration form submission
   const handleRegister = () => {
+    const { username, password, repeatPassword } = formData;
+
+    // Validation checks
     if (!username || !password || !repeatPassword) {
       setErrorMessage('All fields must be filled.');
     } else if (password !== repeatPassword) {
       setErrorMessage('Passwords do not match.');
     } else {
-      navigate('/');
+      // Registration logic (placeholder for actual registration)
+      navigate('/'); // Redirect to another page after successful registration
     }
   };
 
@@ -27,6 +46,7 @@ const RegisterPage = () => {
             <div className="card-header">Register</div>
             <div className="card-body">
               <form>
+                {/* Input fields for username, password, and repeatPassword */}
                 <div className="mb-3">
                   <label htmlFor="username" className="form-label">
                     Username
@@ -35,8 +55,9 @@ const RegisterPage = () => {
                     type="text"
                     className="form-control"
                     id="username"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
+                    name="username"
+                    value={formData.username}
+                    onChange={handleChange}
                   />
                 </div>
                 <div className="mb-3">
@@ -47,8 +68,9 @@ const RegisterPage = () => {
                     type="password"
                     className="form-control"
                     id="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+                    name="password"
+                    value={formData.password}
+                    onChange={handleChange}
                   />
                 </div>
                 <div className="mb-3">
@@ -59,15 +81,18 @@ const RegisterPage = () => {
                     type="password"
                     className="form-control"
                     id="repeatPassword"
-                    value={repeatPassword}
-                    onChange={(e) => setRepeatPassword(e.target.value)}
+                    name="repeatPassword"
+                    value={formData.repeatPassword}
+                    onChange={handleChange}
                   />
                 </div>
+                {/* Display error message if there's an error */}
                 {errorMessage && (
                   <div className="alert alert-danger" role="alert">
                     {errorMessage}
                   </div>
                 )}
+                {/* Button to submit the registration form */}
                 <button
                   type="button"
                   className="btn btn-primary"

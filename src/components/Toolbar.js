@@ -22,35 +22,50 @@ const Toolbar = ({
     <div className="toolbar">
       {currentPage === "animals" && (
         <div className="left-buttons">
+          {/* Button to add a new animal */}
           <button className="btn btn-primary" onClick={onAddAnimal}>
             Add Animal
           </button>
+          {/* Button to navigate to favorite animals */}
           <button className="btn btn-primary" onClick={handleShowFavorites}>
             Favorite Animals
           </button>
-          {!hideFavoritesCount && <span className="favorite-count">({favoritesCount})</span>}
+          {/* Display favorite count if it's not hidden */}
+          {!hideFavoritesCount && (
+            <span className="favorite-count">({favoritesCount})</span>
+          )}
         </div>
       )}
       {currentPage === "favorites" && (
         <div className="left-buttons">
+          {/* Button to navigate back to all animals */}
           <button className="btn btn-primary" onClick={handleShowAllAnimals}>
             All Animals
           </button>
-          {!hideFavoritesCount && <span className="favorite-count">({favoritesCount})</span>}
+          {/* Display favorite count if it's not hidden */}
+          {!hideFavoritesCount && (
+            <span className="favorite-count">({favoritesCount})</span>
+          )}
         </div>
       )}
       {currentPage === "animal" && (
         <div className="left-buttons">
+          {/* Button to navigate back to all animals */}
           <button className="btn btn-primary" onClick={handleShowAllAnimals}>
             All Animals
           </button>
+          {/* Button to navigate to favorite animals */}
           <button className="btn btn-primary" onClick={handleShowFavorites}>
             Favorite Animals
           </button>
-          {!hideFavoritesCount && <span className="favorite-count">({favoritesCount})</span>}
+          {/* Display favorite count if it's not hidden */}
+          {!hideFavoritesCount && (
+            <span className="favorite-count">({favoritesCount})</span>
+          )}
         </div>
       )}
       <div className="right-buttons">
+        {/* Button to log out */}
         <button onClick={onLogout}>Logout</button>
       </div>
     </div>

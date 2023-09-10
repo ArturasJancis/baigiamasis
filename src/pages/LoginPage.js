@@ -3,23 +3,45 @@ import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const LoginPage = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  // State to manage user credentials and error messages
+  const [credentials, setCredentials] = useState({
+    username: "",
+    password: "",
+  });
   const [errorMessage, setErrorMessage] = useState("");
 
+  // Access the navigate function from React Router
+  const navigate = useNavigate();
+
+  // Handle input changes and update the corresponding state
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setCredentials({ ...credentials, [name]: value });
+    
+    // Clear error message when input changes
+    setErrorMessage(""); 
+  };
+
+  // Handle the login process
   const handleLogin = () => {
-    if (username === "admin" && password === "password") {
+    const { username, password } = credentials;
+
+    // Check if username or password fields are empty
+    if (!username || !password) {
+      setErrorMessage("All fields must be filled.");
+    } else if (username === "admin" && password === "password") {
+      // Successful login, navigate to the "/animals" page
       navigate("/animals");
     } else {
+      // Incorrect password, display an error message
       setErrorMessage("Password is wrong. Please try again.");
     }
   };
 
+  // Handle the navigation to the registration page
   const handleRegister = () => {
     navigate("/register");
   };
-
-  const navigate = useNavigate();
 
   return (
     <div className="container mt-5">
@@ -37,8 +59,9 @@ const LoginPage = () => {
                     type="text"
                     className="form-control"
                     id="username"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
+                    name="username"
+                    value={credentials.username}
+                    onChange={handleInputChange}
                   />
                 </div>
                 <div className="mb-3">
@@ -49,8 +72,9 @@ const LoginPage = () => {
                     type="password"
                     className="form-control"
                     id="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+                    name="password"
+                    value={credentials.password}
+                    onChange={handleInputChange}
                   />
                 </div>
                 {errorMessage && (

@@ -35,20 +35,24 @@
   border: 1px solid #ccc;
   border-radius: 4px;
   resize: vertical;
-  min-height: 150px; 
+  min-height: 150px;
   font-size: 16px;
   margin-bottom: 10px;
 }
 
-.comment-input button {
-  background-color: #007bff;
+.comment-input button,
+.delete-comment-button {
   color: #fff;
   border: none;
   border-radius: 4px;
   padding: 10px 20px;
   cursor: pointer;
   font-size: 18px;
-  margin-right: 10px; 
+  margin: 0 10px;
+}
+
+.comment-input button {
+  background-color: #007bff;
 }
 
 .comment-input button:hover {
@@ -57,25 +61,19 @@
 
 .delete-comment-button {
   background-color: #ff3d00;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  padding: 10px 20px;
-  cursor: pointer;
-  font-size: 18px;
-  margin-left: 10px; 
 }
 
 .delete-comment-button:hover {
   background-color: #ff6a3e;
 }
 
-.col-lg-6 h2 {
-  font-size: 48px;
-  margin-bottom: 48px;
+@media (min-width: 992px) {
+  .col-lg-6 h2 {
+    font-size: 48px;
+    margin-bottom: 48px;
+  }
 
-}
-
-.col-lg-6 p {
-  font-size: 36px; 
+  .col-lg-6 p {
+    font-size: 36px;
+  }
 }

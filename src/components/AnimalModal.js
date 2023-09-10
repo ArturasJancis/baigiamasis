@@ -2,21 +2,27 @@ import React, { useState } from "react";
 import { Modal, Button, Form } from "react-bootstrap";
 
 const AnimalModal = ({ show, onHide, onAddAnimal }) => {
+  // State to store the animal data
   const [animalData, setAnimalData] = useState({
     name: "",
     age: "",
     image: "",
-    type: "dog", 
+    type: "dog", // Default type is "dog"
   });
 
+  // Function to handle input changes and update the animal data
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setAnimalData({ ...animalData, [name]: value });
   };
 
+  // Function to handle adding a new animal
   const handleAddAnimal = () => {
-    console.log("Add button clicked"); 
-    onAddAnimal(animalData); 
+    // Log a message to indicate the button click
+    console.log("Add button clicked");
+
+    // Call the provided callback to add the new animal and then close the modal
+    onAddAnimal(animalData);
     onHide();
   };
 

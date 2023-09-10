@@ -15,9 +15,10 @@ const AnimalPage = ({
   setAnimalData,
 }) => {
   const navigate = useNavigate();
-  const [favorites, setFavorites] = useState([]);
   const [filteredAnimals, setFilteredAnimals] = useState(animalData);
+  const [showModal, setShowModal] = useState(false);
 
+  // Handle filtering by animal type
   const handleFilterByType = (type) => {
     if (type === "cats") {
       const cats = animalData.filter(
@@ -34,23 +35,21 @@ const AnimalPage = ({
     }
   };
 
+  // Handle filtering by age
   const handleFilterByAge = (age) => {
-    if (age === "") {
-      setFilteredAnimals(animalData);
-    } else {
-      const filtered = animalData.filter(
-        (animal) => animal.age <= parseInt(age)
-      );
-      setFilteredAnimals(filtered);
-    }
+    const filtered =
+      age === ""
+        ? animalData
+        : animalData.filter((animal) => animal.age <= parseInt(age));
+    setFilteredAnimals(filtered);
   };
 
+  // Handle user logout
   const handleLogout = () => {
     navigate("/");
   };
 
-  const [showModal, setShowModal] = useState(false);
-
+  // Handle adding a new animal to the list
   const handleAddAnimal = (animal) => {
     const updatedAnimalData = [...animalData, animal];
     setAnimalData(updatedAnimalData);
@@ -58,10 +57,12 @@ const AnimalPage = ({
     setShowModal(false);
   };
 
+  // Handle showing the add animal modal
   const handleShowModal = () => {
     setShowModal(true);
   };
 
+  // Handle adding an animal to favorites
   const handleAddToFavorites = (animal) => {
     const isAlreadyFavorite = favoriteAnimals.some(
       (favAnimal) => favAnimal.name === animal.name
@@ -70,17 +71,13 @@ const AnimalPage = ({
     if (!isAlreadyFavorite) {
       const updatedFavoriteAnimals = [...favoriteAnimals, animal];
       setFavoriteAnimals(updatedFavoriteAnimals);
-
       setFavoritesCount((prevCount) => prevCount + 1);
     }
   };
 
-  const handleFavoriteCountChange = (newCount) => {
-    setFavoritesCount(newCount);
-  };
-
   return (
     <div className="container mt-4">
+      {/* Toolbar component for navigation and actions */}
       <Toolbar
         onLogout={handleLogout}
         onAddAnimal={handleShowModal}
@@ -88,26 +85,27 @@ const AnimalPage = ({
         currentPage="animals"
         favoritesCount={favoritesCount}
       />
+      {/* FilterBar component for filtering animals */}
       <FilterBar
         onFilterByType={handleFilterByType}
         onFilterByAge={handleFilterByAge}
       />
       <div className="row mt-4">
+        {/* Map and display filtered animals as AnimalCard components */}
         {filteredAnimals.map((animal, index) => (
           <div key={index} className="col-lg-4 col-md-6 col-sm-12 mb-4">
             <AnimalCard
               animal={animal}
-              favorites={favorites}
               isFavorite={favoriteAnimals.some(
                 (favAnimal) => favAnimal.name === animal.name
               )}
-              setFavorites={setFavorites}
               onAddToFavorites={(animal) => handleAddToFavorites(animal)}
               animalId={animal.name}
             />
           </div>
         ))}
       </div>
+      {/* AnimalModal for adding new animals */}
       <AnimalModal
         show={showModal}
         onHide={() => setShowModal(false)}

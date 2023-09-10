@@ -12,11 +12,13 @@ const AnimalCard = ({
 }) => {
   const { name, type, age, image } = animal;
 
+  // Function to handle adding the animal to favorites
   const handleClickAddToFavorites = (event) => {
     event.preventDefault();
     onAddToFavorites(animal);
   };
 
+  // Function to handle removing the animal from favorites
   const handleClickRemoveFromFavorites = (event) => {
     event.preventDefault();
     onRemoveFromFavorites(animal);
@@ -32,6 +34,7 @@ const AnimalCard = ({
           <p>Age: {age} years</p>
         </div>
         {currentPage === "favorites" ? (
+          // Button to remove from favorites if on the favorites page
           <button
             onClick={handleClickRemoveFromFavorites}
             className="btn btn-danger"
@@ -39,6 +42,7 @@ const AnimalCard = ({
             Remove from Favorites
           </button>
         ) : (
+          // Button to add to favorites if not on the favorites page
           <button
             onClick={handleClickAddToFavorites}
             className="btn btn-primary"
