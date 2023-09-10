@@ -37,11 +37,14 @@ const AnimalPage = ({
 
   // Handle filtering by age
   const handleFilterByAge = (age) => {
-    const filtered =
-      age === ""
-        ? animalData
-        : animalData.filter((animal) => animal.age <= parseInt(age));
-    setFilteredAnimals(filtered);
+    if (age === "") {
+      setFilteredAnimals(animalData);
+    } else {
+      const filtered = animalData.filter(
+        (animal) => animal.age === parseInt(age)
+      );
+      setFilteredAnimals(filtered);
+    }
   };
 
   // Handle user logout
