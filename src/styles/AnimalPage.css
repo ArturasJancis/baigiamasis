@@ -1,7 +1,16 @@
-.filter-bar, .toolbar {
+.filter-bar,
+.toolbar {
   display: flex;
   align-items: center;
   padding: 10px 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .filter-bar, .toolbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
 }
 
 .filter-bar {
@@ -14,7 +23,8 @@
   justify-content: space-between;
 }
 
-.filter-bar button, .right-buttons button {
+.filter-bar button,
+.right-buttons button {
   background-color: #007bff;
   color: #fff;
   border: none;
@@ -55,21 +65,19 @@
   text-align: center;
 }
 
-@media (min-width: 992px) {
-  .left-buttons {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-  }
+.left-buttons {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
 
-  .right-buttons {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-  }
+.right-buttons {
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }
 
 .Link {
   color: inherit;
-  text-decoration: none; 
+  text-decoration: none;
 }
