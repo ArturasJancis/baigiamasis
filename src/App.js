@@ -27,7 +27,7 @@ function App() {
       type: "Dog",
       age: 2,
       image:
-        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.49CH_m8xcY3b6stGkMkG2AHaEO%26pid%3DApi&f=1&ipt=a9c338652443d4ab455ca3870b36431483b3645d0e7c5ae897a8559e240af67b&ipo=images",
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.yuYto9g41BDnIt-LwK5N6gHaHx%26pid%3DApi&f=1&ipt=c6fea9d9aded396002129bc3eae39affa7dea2658a3ff83a789334134588b26e&ipo=images",
       comments: [],
     },
     {
@@ -43,7 +43,7 @@ function App() {
       type: "Dog",
       age: 4,
       image:
-        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.UII6_ipJ_blk2fgFpBr0iwHaFX%26pid%3DApi&f=1&ipt=810f45ac06db7c773d6e80544e2419795efa27586662140031912d4656d97e1e&ipo=images",
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.RQ33WXLzkx16JW3gBxGhYgHaEK%26pid%3DApi&f=1&ipt=484a2cf2a16a88cb127dd003238980ac71e19c03555eec84d34b206e2b3cdfdb&ipo=images",
       comments: [],
     },
     {
@@ -51,7 +51,7 @@ function App() {
       type: "Cat",
       age: 2,
       image:
-        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.xNmHVmGh6h-YMTSalWZIAAHaEK%26pid%3DApi&f=1&ipt=0228111c50f254eb3eb51500b6deed06a3ac99374f6a658d42b5e0cceed1fc47&ipo=images",
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.fs03VYi78kJokUkzUbxLbwHaEo%26pid%3DApi&f=1&ipt=bfea5eb31bb2d278c76630f34a72bb5f847ab2bfa4e02d5acfc49ee1caaf1cd8&ipo=images",
       comments: [],
     },
     {
@@ -67,7 +67,7 @@ function App() {
       type: "Cat",
       age: 4,
       image:
-        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.7Tk5VIU_rFqyZFzBVrwM_AHaFj%26pid%3DApi&f=1&ipt=a6bd560faf738b19b0c9a93dab59508e823089d3b8beddc8dddd5e6ddb0bfa23&ipo=images",
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP._QU1CsK2SriRYOJMpLVwOAHaEK%26pid%3DApi&f=1&ipt=d89bd3d975205da166090ace60ff728d1edc87dd142c61889173f7d2f555f68e&ipo=images",
       comments: [],
     },
     {
@@ -83,7 +83,7 @@ function App() {
       type: "Cat",
       age: 3,
       image:
-        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.Sbtp6DnO5KP7WVNuygzhZwHaFH%26pid%3DApi&f=1&ipt=38089558ed8494553de382456dfbb8a30f756874d482f31397b6aacd95fb8765&ipo=images",
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.S6Xyk_H7Xj0iJMam3Xcy8QHaE8%26pid%3DApi&f=1&ipt=79b3eaf986ff39842cd4152cb7fcc421b47d9eccf8f2a7045e629ff57d4ea328&ipo=images",
       comments: [],
     },
   ]);

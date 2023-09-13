@@ -5,11 +5,11 @@ import "../styles/SingleAnimalPage.css";
 import { useCommentContext } from "../components/CommentContext";
 
 const SingleAnimalPage = ({ animalData, favoritesCount, setAnimalData }) => {
-  const { animalId } = useParams(); // Get the animalId from the route parameters.
-  const [newComment, setNewComment] = useState(""); // State for the new comment input.
-  const [currentAnimal, setCurrentAnimal] = useState(null); // State to store the current animal.
-  const { addComment, deleteComment } = useCommentContext(); // Access comment-related functions from context.
-  const navigate = useNavigate(); // Access the navigation function from React Router.
+  const { animalId } = useParams(); 
+  const [newComment, setNewComment] = useState("");
+  const [currentAnimal, setCurrentAnimal] = useState(null); 
+  const { addComment, deleteComment } = useCommentContext(); 
+  const navigate = useNavigate(); 
 
   // useEffect to load the current animal data when the component mounts.
   useEffect(() => {

@@ -1,18 +1,18 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const RegisterPage = () => {
   const navigate = useNavigate();
 
   // State to manage form input values and error message
   const [formData, setFormData] = useState({
-    username: '',
-    password: '',
-    repeatPassword: '',
+    username: "",
+    password: "",
+    repeatPassword: "",
   });
 
-  const [errorMessage, setErrorMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState("");
 
   // Handle changes in input fields
   const handleChange = (e) => {
@@ -29,13 +29,17 @@ const RegisterPage = () => {
 
     // Validation checks
     if (!username || !password || !repeatPassword) {
-      setErrorMessage('All fields must be filled.');
+      setErrorMessage("All fields must be filled.");
     } else if (password !== repeatPassword) {
-      setErrorMessage('Passwords do not match.');
+      setErrorMessage("Passwords do not match.");
     } else {
       // Registration logic (placeholder for actual registration)
-      navigate('/'); // Redirect to another page after successful registration
+      navigate("/"); // Redirect to another page after successful registration
     }
+  };
+
+  const handleLogin = () => {
+    navigate("/");
   };
 
   return (
@@ -97,8 +101,16 @@ const RegisterPage = () => {
                   type="button"
                   className="btn btn-primary"
                   onClick={handleRegister}
+                  style={{ marginRight: '5px' }}
                 >
                   Register
+                </button>
+                <button
+                  type="button"
+                  className="btn btn-secondary"
+                  onClick={handleLogin}
+                >
+                  Back to Login
                 </button>
               </form>
             </div>

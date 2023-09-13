@@ -86,6 +86,7 @@ const LoginPage = () => {
                   type="button"
                   className="btn btn-primary"
                   onClick={handleLogin}
+                  style={{ marginRight: '5px' }}
                 >
                   Login
                 </button>
