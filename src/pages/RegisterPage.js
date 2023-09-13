@@ -4,6 +4,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 const RegisterPage = () => {
   const navigate = useNavigate();
+  const [registrationSuccess, setRegistrationSuccess] = useState(false);
+  const [successMessage, setSuccessMessage] = useState("");
 
   // State to manage form input values and error message
   const [formData, setFormData] = useState({
@@ -34,7 +36,10 @@ const RegisterPage = () => {
       setErrorMessage("Passwords do not match.");
     } else {
       // Registration logic (placeholder for actual registration)
-      navigate("/"); // Redirect to another page after successful registration
+      setRegistrationSuccess(true);
+      setSuccessMessage("Registration is successful!");
+      setErrorMessage(""); // Clear the error message
+      // You can redirect the user to another page here if needed
     }
   };
 
@@ -96,14 +101,20 @@ const RegisterPage = () => {
                     {errorMessage}
                   </div>
                 )}
+                {registrationSuccess && (
+                  <div className="alert alert-success" role="alert">
+                    {successMessage}
+                  </div>
+                )}
                 {/* Button to submit the registration form */}
                 <button
                   type="button"
                   className="btn btn-primary"
                   onClick={handleRegister}
-                  style={{ marginRight: '5px' }}
+                  style={{ marginRight: "5px" }}
                 >
                   Register
+                  {/* Button to go back to Login page */}
                 </button>
                 <button
                   type="button"
