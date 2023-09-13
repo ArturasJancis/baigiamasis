@@ -7,7 +7,7 @@ const AnimalModal = ({ show, onHide, onAddAnimal }) => {
     name: "",
     age: "",
     image: "",
-    type: "dog", // Default type is "dog"
+    type: "Dog", // Default type is "Dog"
   });
 
   // Function to handle input changes and update the animal data
@@ -19,7 +19,7 @@ const AnimalModal = ({ show, onHide, onAddAnimal }) => {
   // Function to handle adding a new animal
   const handleAddAnimal = () => {
     // Call the provided callback to add the new animal and then close the modal
-    onAddAnimal(animalData);
+    onAddAnimal(animalData); // Pass 'animalData' directly
     onHide();
   };
 
@@ -65,8 +65,8 @@ const AnimalModal = ({ show, onHide, onAddAnimal }) => {
               value={animalData.type}
               onChange={handleInputChange}
             >
-              <option value="dog">Dog</option>
-              <option value="cat">Cat</option>
+              <option value="Dog">Dog</option> 
+              <option value="Cat">Cat</option> 
             </Form.Control>
           </Form.Group>
         </Form>
